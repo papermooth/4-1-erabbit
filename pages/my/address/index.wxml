@@ -1,0 +1,47 @@
+<view class="viewport">
+  <!-- 地址列表 -->
+  <scroll-view
+    enhanced
+    scroll-y>
+    <view class="address">
+      <mp-slideview
+        wx:for="{{addressData}}"
+        wx:key="id"
+        bind:buttontap="buttonTap"
+        mark:id="{{item.id}}"
+        mark:index="{{index}}"
+        buttons="{{slideButtons}}">
+        <view
+          bind:tap="getAddressInfo"
+          mark:address="{{item}}"
+          class="item">
+          <view class="user">
+            {{item.receiver}}
+            <text>{{item.contact}}</text>
+            <text
+              wx:if="{{item.isDefault === 1}}"
+              class="badge">默认</text>
+          </view>
+          <view
+            class="locate">
+              {{item.fullLocation}}
+              {{item.address}}
+            </view>
+          <navigator
+            url="./form/index?id={{item.id}}"
+            class="edit"
+            hover-class="none">修改</navigator>
+        </view>
+      </mp-slideview>
+    </view>
+    <view
+      wx:if="{{loaded&&!addressData.length}}"
+      class="blank">收货地址为空~</view>
+  </scroll-view>
+  <!-- 添加按钮 -->
+  <view class="button">
+    <navigator
+      hover-class="none"
+      url="./form/index">新建地址</navigator>
+  </view>
+</view>

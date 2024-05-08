@@ -1,0 +1,34 @@
+<view class="viewport">
+  <view class="logo">
+    <image src="https://static.botue.com/erabbit/static/images/logo_icon.png"></image>
+  </view>
+  <view class="login">
+    <button
+      open-type="getPhoneNumber"
+      bind:getphonenumber="getPhoneNumber"
+      class="button phone">
+      <text class="icon icon-phone"></text>
+      手机号快捷登录
+    </button>
+    <view class="extra">
+      <view class="caption">
+        <text>其它登录方式</text>
+      </view>
+      <view class="options">
+        <button
+          bind:tap="getUserProfile">
+          <text class="icon icon-weixin">微信</text>
+        </button>
+        <!-- <button
+          bind:getphonenumber="getPhoneNumber"
+          open-type="getPhoneNumber">
+          <text class="icon icon-phone">手机</text>
+        </button> -->
+        <button bind:tap="nextVersion">
+          <text class="icon icon-mail">邮箱</text>
+        </button>
+      </view>
+    </view>
+    <view class="tips">登录/注册即视为你同意《服务条款》和《小兔鲜儿隐私协议》</view>
+  </view>
+</view>

@@ -1,0 +1,66 @@
+<view class="viewport">
+  <scroll-view
+    scroll-y>
+    <view class="caption">选择兴趣爱好</view>
+    <view class="tips">建议多选几个您感兴趣的分类</view>
+    <view class="interest">
+      <view class="title">您感兴趣的分类是</view>
+      <view class="item">
+        <image
+        class="cover"
+        src="http://static.botue.com/erabbit/static/uploads/interest_1.jpg" />
+        <switch type="checkbox" />
+      </view>
+      <view class="item">
+        <image
+        class="cover"
+        src="http://static.botue.com/erabbit/static/uploads/interest_2.jpg" />
+        <switch type="checkbox" />
+      </view>
+      <view class="item">
+        <image
+        class="cover"
+        src="http://static.botue.com/erabbit/static/uploads/interest_3.jpg" />
+        <switch type="checkbox" />
+      </view>
+      <view class="item">
+        <image
+        class="cover"
+        src="http://static.botue.com/erabbit/static/uploads/interest_4.jpg" />
+        <switch type="checkbox" />
+      </view>
+      <view class="item">
+        <image
+        class="cover"
+        src="http://static.botue.com/erabbit/static/uploads/interest_5.jpg" />
+        <switch type="checkbox" />
+      </view>
+      <view class="item">
+        <image
+        class="cover"
+        src="http://static.botue.com/erabbit/static/uploads/interest_6.jpg" />
+        <switch type="checkbox" />
+      </view>
+      <view class="item">
+        <image
+        class="cover"
+        src="http://static.botue.com/erabbit/static/uploads/interest_2.jpg" />
+        <switch type="checkbox" />
+      </view>
+      <view class="item">
+        <image
+        class="cover"
+        src="http://static.botue.com/erabbit/static/uploads/interest_3.jpg" />
+        <switch type="checkbox" />
+      </view>
+      <view class="item">
+        <image
+        class="cover"
+        src="http://static.botue.com/erabbit/static/uploads/interest_4.jpg" />
+        <switch type="checkbox" />
+      </view>
+    </view>
+  </scroll-view>
+  <!-- 添加按钮 -->
+  <!-- <view class="button">保存</view> -->
+</view>

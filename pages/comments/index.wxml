@@ -1,0 +1,297 @@
+<scroll-view
+  scroll-y
+  enhanced
+  show-scrollbar="{{false}}"
+  class="viewport">
+  <view class="filter">
+    <scroll-view scroll-x>
+      <view class="wrap">
+        <text class="text active">全部</text>
+        <text class="text">有图(57)</text>
+        <text class="text">追加(27)</text>
+        <text class="text">好评(5677)</text>
+        <text class="text">差评(20)</text>
+      </view>
+    </scroll-view>
+  </view>
+
+  <view class="comments">
+    <view class="comment">
+      <view class="caption">
+        <view class="user">
+          <image
+            class="avatar"
+            src="https://static.botue.com/erabbit/static/uploads/avatar_2.jpg" />
+          <text >白月初</text>
+        </view>
+        <view class="rating">
+          <view class="rank" style="width: 80%"></view>
+        </view>
+      </view>
+      <view class="content">
+        <view class="text">
+          质量不错，灵敏度高，结构巧妙，款式也好看
+        </view>
+        <view class="pictures">
+          <view class="picture">
+            <image
+              src="https://static.botue.com/erabbit/static/uploads/comment_1.jpg" />
+          </view>
+          <view class="picture">
+            <image
+              src="https://static.botue.com/erabbit/static/uploads/comment_2.jpg" />
+          </view>
+          <view class="picture">
+            <image
+              src="https://static.botue.com/erabbit/static/uploads/comment_2.jpg" />
+          </view>
+        </view>
+        <view class="extra">
+          <text class="date">购买时间: 2020-11-11</text>
+          <text class="type">黑色 公开版 128G</text>
+        </view>
+      </view>
+    </view>
+    <view class="comment">
+      <view class="caption">
+        <view class="user">
+          <image
+            class="avatar"
+            src="https://static.botue.com/erabbit/static/uploads/avatar_3.jpg" />
+          <text >白月初</text>
+        </view>
+        <view class="rating">
+          <view class="rank" style="width: 60%"></view>
+        </view>
+      </view>
+      <view class="content">
+        <view class="text">
+          质量不错，灵敏度高，结构巧妙，款式也好看
+        </view>
+        <view class="pictures">
+          <view class="picture">
+            <image
+              src="https://static.botue.com/erabbit/static/uploads/comment_1.jpg" />
+          </view>
+          <view class="picture">
+            <image
+              src="https://static.botue.com/erabbit/static/uploads/comment_2.jpg" />
+          </view>
+          <view class="picture">
+            <image
+              src="https://static.botue.com/erabbit/static/uploads/comment_2.jpg" />
+          </view>
+          <view class="picture">
+            <image
+              src="https://static.botue.com/erabbit/static/uploads/comment_1.jpg" />
+          </view>
+        </view>
+        <view class="extra">
+          <text class="date">购买时间: 2020-11-11</text>
+          <text class="type">黑色 公开版 128G</text>
+        </view>
+      </view>
+    </view>
+    <view class="comment">
+      <view class="caption">
+        <view class="user">
+          <image
+            class="avatar"
+            src="https://static.botue.com/erabbit/static/uploads/avatar_3.jpg" />
+          <text >白月初</text>
+        </view>
+        <view class="rating">
+          <view class="rank" style="width: 60%"></view>
+        </view>
+      </view>
+      <view class="content">
+        <view class="text">
+          质量不错，灵敏度高，结构巧妙，款式也好看
+        </view>
+        <view class="pictures">
+          <view class="picture">
+            <image
+              src="https://static.botue.com/erabbit/static/uploads/comment_1.jpg" />
+          </view>
+          <view class="picture">
+            <image
+              src="https://static.botue.com/erabbit/static/uploads/comment_2.jpg" />
+          </view>
+          <view class="picture">
+            <image
+              src="https://static.botue.com/erabbit/static/uploads/comment_2.jpg" />
+          </view>
+          <view class="picture">
+            <image
+              src="https://static.botue.com/erabbit/static/uploads/comment_1.jpg" />
+          </view>
+        </view>
+        <view class="extra">
+          <text class="date">购买时间: 2020-11-11</text>
+          <text class="type">黑色 公开版 128G</text>
+        </view>
+      </view>
+    </view>
+    <view class="comment">
+      <view class="caption">
+        <view class="user">
+          <image
+            class="avatar"
+            src="https://static.botue.com/erabbit/static/uploads/avatar_3.jpg" />
+          <text >白月初</text>
+        </view>
+        <view class="rating">
+          <view class="rank" style="width: 60%"></view>
+        </view>
+      </view>
+      <view class="content">
+        <view class="text">
+          质量不错，灵敏度高，结构巧妙，款式也好看
+        </view>
+        <view class="pictures">
+          <view class="picture">
+            <image
+              src="https://static.botue.com/erabbit/static/uploads/comment_1.jpg" />
+          </view>
+          <view class="picture">
+            <image
+              src="https://static.botue.com/erabbit/static/uploads/comment_2.jpg" />
+          </view>
+          <view class="picture">
+            <image
+              src="https://static.botue.com/erabbit/static/uploads/comment_2.jpg" />
+          </view>
+          <view class="picture">
+            <image
+              src="https://static.botue.com/erabbit/static/uploads/comment_1.jpg" />
+          </view>
+        </view>
+        <view class="extra">
+          <text class="date">购买时间: 2020-11-11</text>
+          <text class="type">黑色 公开版 128G</text>
+        </view>
+      </view>
+    </view>
+    <view class="comment">
+      <view class="caption">
+        <view class="user">
+          <image
+            class="avatar"
+            src="https://static.botue.com/erabbit/static/uploads/avatar_3.jpg" />
+          <text >白月初</text>
+        </view>
+        <view class="rating">
+          <view class="rank" style="width: 60%"></view>
+        </view>
+      </view>
+      <view class="content">
+        <view class="text">
+          质量不错，灵敏度高，结构巧妙，款式也好看
+        </view>
+        <view class="pictures">
+          <view class="picture">
+            <image
+              src="https://static.botue.com/erabbit/static/uploads/comment_1.jpg" />
+          </view>
+          <view class="picture">
+            <image
+              src="https://static.botue.com/erabbit/static/uploads/comment_2.jpg" />
+          </view>
+          <view class="picture">
+            <image
+              src="https://static.botue.com/erabbit/static/uploads/comment_2.jpg" />
+          </view>
+          <view class="picture">
+            <image
+              src="https://static.botue.com/erabbit/static/uploads/comment_1.jpg" />
+          </view>
+        </view>
+        <view class="extra">
+          <text class="date">购买时间: 2020-11-11</text>
+          <text class="type">黑色 公开版 128G</text>
+        </view>
+      </view>
+    </view>
+    <view class="comment">
+      <view class="caption">
+        <view class="user">
+          <image
+            class="avatar"
+            src="https://static.botue.com/erabbit/static/uploads/avatar_3.jpg" />
+          <text >白月初</text>
+        </view>
+        <view class="rating">
+          <view class="rank" style="width: 60%"></view>
+        </view>
+      </view>
+      <view class="content">
+        <view class="text">
+          质量不错，灵敏度高，结构巧妙，款式也好看
+        </view>
+        <view class="pictures">
+          <view class="picture">
+            <image
+              src="https://static.botue.com/erabbit/static/uploads/comment_1.jpg" />
+          </view>
+          <view class="picture">
+            <image
+              src="https://static.botue.com/erabbit/static/uploads/comment_2.jpg" />
+          </view>
+          <view class="picture">
+            <image
+              src="https://static.botue.com/erabbit/static/uploads/comment_2.jpg" />
+          </view>
+          <view class="picture">
+            <image
+              src="https://static.botue.com/erabbit/static/uploads/comment_1.jpg" />
+          </view>
+        </view>
+        <view class="extra">
+          <text class="date">购买时间: 2020-11-11</text>
+          <text class="type">黑色 公开版 128G</text>
+        </view>
+      </view>
+    </view>
+    <view class="comment">
+      <view class="caption">
+        <view class="user">
+          <image
+            class="avatar"
+            src="https://static.botue.com/erabbit/static/uploads/avatar_3.jpg" />
+          <text >白月初</text>
+        </view>
+        <view class="rating">
+          <view class="rank" style="width: 60%"></view>
+        </view>
+      </view>
+      <view class="content">
+        <view class="text">
+          质量不错，灵敏度高，结构巧妙，款式也好看
+        </view>
+        <view class="pictures">
+          <view class="picture">
+            <image
+              src="https://static.botue.com/erabbit/static/uploads/comment_1.jpg" />
+          </view>
+          <view class="picture">
+            <image
+              src="https://static.botue.com/erabbit/static/uploads/comment_2.jpg" />
+          </view>
+          <view class="picture">
+            <image
+              src="https://static.botue.com/erabbit/static/uploads/comment_2.jpg" />
+          </view>
+          <view class="picture">
+            <image
+              src="https://static.botue.com/erabbit/static/uploads/comment_1.jpg" />
+          </view>
+        </view>
+        <view class="extra">
+          <text class="date">购买时间: 2020-11-11</text>
+          <text class="type">黑色 公开版 128G</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+</scroll-view>

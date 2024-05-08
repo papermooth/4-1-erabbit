@@ -1,0 +1,113 @@
+<!-- 引入封装好的处理价格展示的方法 -->
+<wxs src="/wxs/price.wxs" module="price"></wxs>
+
+<scroll-view
+  scroll-y
+  enhanced
+  show-scrollbar="{{false}}"
+  class="viewport">
+  <!-- 顶部工具栏 -->
+  <view class="topbar" wx:if="{{false}}">
+    <view class="locate">顺义区后沙峪地区</view>
+    <view class="extra">
+      <text class="edit">编辑</text>
+      <text class="menu"></text>
+    </view>
+  </view>
+
+  <block wx:if="{{isLogin}}">
+    <!-- 优惠提示 -->
+    <view class="tips">
+      <text class="label">满减</text>
+      <text class="desc">满1件, 即可享受9折优惠</text>
+    </view>
+
+    <!-- 购物车商品 -->
+    <view class="carts">
+      <mp-slideview
+        wx:for="{{cartData}}"
+        wx:key="id"
+        class="slideview"
+        bind:buttontap="buttonTap"
+        mark:skuId="{{item.skuId}}"
+        mark:key="{{index}}"
+        buttons="{{slideButtons}}">
+        <view class="card">
+          <text
+            bind:tap="checkToggle"
+            class="checkbox icon-{{item.selected ? 'checked' : 'ring'}}"></text>
+          <!-- 商品缩略图 -->
+          <image class="thumb" src="{{item.picture}}"></image>
+          <div class="meta">
+            <!-- 商品名称 -->
+            <view class="name ellipsis">{{item.name}}</view>
+            <!-- 商品类型 -->
+            <view class="type">{{item.attrsText}}</view>
+            <!-- 价格 -->
+            <view class="price">
+              ¥{{item.price}}
+            </view>
+            <!-- 商品数量 -->
+            <view
+              bind:tap="changeNumber"
+              class="quantity">
+              <text
+                mark:step="{{-1}}"
+                class="text">-</text>
+              <input
+                class="input"
+                type="text"
+                value="{{item.count}}" />
+              <text
+                mark:step="{{1}}"
+                class="text">+</text>
+            </view>
+          </div>
+        </view>
+      </mp-slideview>
+    </view>
+  </block>
+
+  <!-- 状态提示 -->
+  <view class="blank" wx:if="{{!isLogin}}">
+    <text>登后后可查看购物车中的商品</text>
+    <button
+      bind:tap="navigateTo"
+      mark:url="/pages/login/index"
+      class="button">去登录</button>
+  </view>
+
+  <!-- 猜你喜欢 -->
+  <guess source="{{guessData}}"></guess>
+</scroll-view>
+
+<!-- 吸底工具栏 -->
+<view class="toolbar" wx:if="{{isLogin}}">
+  <text
+    class="all {{isAll && 'checked'}}"
+    bind:tap="checkAll">全选</text>
+  <text class="text">合计:</text>
+  <text class="amount">
+    <text>{{price.trunc(amount)}}</text>
+    <text class="decimal">{{price.fract(amount)}}</text>
+  </text>
+  <!-- 操作按钮 -->
+  <view class="buttons">
+    <view
+      class="button payment {{amount === 0 && 'disabled'}}"
+      bind:tap="goPay">去结算</view>
+    <view class="button collect">移入收藏</view>
+    <view class="button delete">删除</view>
+  </view>
+</view>
+
+<!-- 对话框 -->
+<view class="mask" wx:if="{{false}}">
+  <view class="dialog">
+    <text class="text">是否确认将此商品移入收藏?</text>
+    <div class="buttons">
+      <view class="button cancel">取消</view>
+      <view class="button confirm">确认</view>
+    </div>
+  </view>
+</view>

@@ -1,0 +1,76 @@
+
+<view class="viewport">
+  <!-- 搜索条 -->
+  <view class="search icon-search">
+    <input
+      type="search"
+      bind:input="getSuggestion"
+      bind:tap="startInput"
+      bind:confirm="execQuery"
+      model:value="{{currentKey}}"
+      focus="{{focused}}"/>
+    <text
+      class="clear icon-clear"
+      catch:tap="clearInput"
+      hidden="{{!currentKey}}"></text>
+    <text
+      bind:tap="execQuery"
+      class="button">搜索</text>
+  </view>
+
+  <!-- 热词 -->
+  <view class="hots">
+    <view class="title">热门搜索</view>
+    <view
+      class="keywords"
+      bind:tap="execQuery">
+      <text
+        data-keywords="{{item}}"
+        wx:for="{{hotKeys}}"
+        wx:key="*this">{{item}}</text>
+    </view>
+  </view>
+
+  <!-- 搜索历史 -->
+  <view class="history">
+    <view class="title">历史搜索</view>
+    <view
+      class="keywords"
+      bind:tap="execQuery">
+      <text
+        data-keywords="{{item}}"
+        wx:for="{{historyKeys}}"
+        wx:key="*this">{{item}}</text>
+    </view>
+  </view>
+  
+  <!-- 查询结果 -->
+  <result class="list" wx:if="{{!entering}}"></result>
+
+  <!-- 搜索建议 -->
+  <view
+    class="suggestion"
+    hidden="{{!entering || !suggestions.length}}">
+    <scroll-view
+      scroll-y>
+      <view
+        wx:for="{{suggestions}}"
+        wx:key="*this"
+        class="item">
+        <view
+          data-keywords="{{currentKey}}{{item.match}}"
+          bind:tap="execQuery"
+          class="match">
+          <text class="mark">{{currentKey}}</text>{{item.match}}
+        </view>
+        <view class="related">
+          <text
+            data-keywords="{{item}}"
+            bind:tap="execQuery"
+            wx:key="*this"
+            wx:for="{{item.related}}">{{item}}</text>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+</view>

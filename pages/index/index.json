@@ -1,0 +1,11 @@
+{
+  "navigationStyle": "custom",
+  "navigationBarTextStyle": "white",
+  "enablePullDownRefresh": false,
+  "backgroundColorTop": "#28bb9c",
+  "usingComponents": {
+    "carousel": "/components/carousel/index",
+    "guess": "/components/guess/index",
+    "entries": "./components/entries/index"
+  }
+}

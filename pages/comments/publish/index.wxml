@@ -1,0 +1,124 @@
+<scroll-view
+  scroll-y
+  enhanced
+  show-scrollbar="{{false}}">
+  <view class="viewport">
+    <view class="card">
+      <view class="goods">
+        <image
+        class="thumb"
+        src="https://static.botue.com/erabbit/static/uploads/comment_1.jpg"></image>
+        <view class="name ellipsis">
+          康尔贝 非接触式红外体温仪 领券立减30元 婴儿级材质 测温更安全康尔贝 非接触式红外体温仪 领券立减30元 婴儿级材质 测温更安全康尔贝 非接触式红外体温仪 领券立减30元
+        </view>
+        <view class="extra">
+          颜色分类: 白色 种类: 全自动充电
+        </view>
+      </view>
+      <view class="rating">
+        <view class="label">商品评分: </view>
+        <text class="star on"></text>
+        <text class="star on"></text>
+        <text class="star on"></text>
+        <text class="star on"></text>
+        <text class="star"></text>
+        <view class="level">非常好</view>
+      </view>
+      <view class="tags">
+        <view class="label">印象标签: </view>
+        <view class="options">
+          <text class="text active">穿着舒服</text>
+          <text class="text active">漂亮精致</text>
+          <text class="text active">保暖性好</text>
+          <text class="text">买家秀</text>
+          <text class="text">不敢爆照</text>
+          <text class="text">完美</text>
+        </view>
+      </view>
+      <view class="content">
+        <view class="label">评价晒单: </view>
+        <textarea cursor-spacing="100"></textarea>
+      </view>
+      <div class="pictures">
+        <view class="picture">
+          <image src="https://static.botue.com/erabbit/static/uploads/comment_1.jpg"></image>
+          <text class="remove"></text>
+        </view>
+        <view class="picture">
+          <image src="https://static.botue.com/erabbit/static/uploads/comment_2.jpg"></image>
+          <text class="remove"></text>
+        </view>
+        <view class="picture">
+          <image src="https://static.botue.com/erabbit/static/uploads/comment_1.jpg"></image>
+          <text class="remove"></text>
+        </view>
+        <view class="button icon-camera-plus">
+          <text>添加照片</text>
+        </view>
+      </div>
+      <view class="action">
+        <view class="anonymous">
+          <text class="icon icon-checked"></text>匿名评价
+        </view>
+        <view class="submit">提交</view>
+      </view>
+    </view>
+    <view class="card">
+      <view class="goods">
+        <image
+        class="thumb"
+        src="https://static.botue.com/erabbit/static/uploads/comment_1.jpg"></image>
+        <view class="name ellipsis">
+          康尔贝 非接触式红外体温仪 领券立减30元 婴儿级材质 测温更安全康尔贝 非接触式红外体温仪 领券立减30元 婴儿级材质 测温更安全康尔贝 非接触式红外体温仪 领券立减30元
+        </view>
+        <view class="extra">
+          颜色分类: 白色 种类: 全自动充电
+        </view>
+      </view>
+      <view class="rating">
+        <view class="label">商品评分: </view>
+        <text class="star on"></text>
+        <text class="star on"></text>
+        <text class="star on"></text>
+        <text class="star on"></text>
+        <text class="star"></text>
+        <view class="level">非常好</view>
+      </view>
+      <view class="tags">
+        <view class="label">印象标签: </view>
+        <view class="options">
+          <text class="text active">穿着舒服</text>
+          <text class="text active">漂亮精致</text>
+          <text class="text active">保暖性好</text>
+          <text class="text">买家秀</text>
+          <text class="text">不敢爆照</text>
+          <text class="text">完美</text>
+        </view>
+      </view>
+      <view class="content">
+        <view class="label">评价晒单: </view>
+        <textarea cursor-spacing="100"></textarea>
+      </view>
+      <div class="pictures">
+        <view class="picture">
+          <image src="https://static.botue.com/erabbit/static/uploads/comment_1.jpg"></image>
+        </view>
+        <view class="picture">
+          <image src="https://static.botue.com/erabbit/static/uploads/comment_2.jpg"></image>
+        </view>
+        <view class="picture">
+          <image src="https://static.botue.com/erabbit/static/uploads/comment_1.jpg"></image>
+        </view>
+        <view class="button icon-camera-plus">
+          <text>添加照片</text>
+        </view>
+      </div>
+      <view class="action">
+        <view class="anonymous">
+          <text class="icon icon-ring"></text>匿名评价
+        </view>
+        <view class="submit">提交</view>
+      </view>
+    </view>
+  </view>
+</scroll-view>

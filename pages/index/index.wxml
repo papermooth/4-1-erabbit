@@ -1,0 +1,163 @@
+<!-- 导入 wxs 封装好的用于处理价格的方法 -->
+<wxs src="/wxs/price.wxs" module="price"></wxs>
+
+<!-- 导航条 -->
+<view
+  class="navbar"
+  style="padding-top: {{safeArea.top}}px">
+  <!-- 文字logo -->
+  <view class="logo">
+    <image
+      src="http://static.botue.com/erabbit/static/images/logo.png"></image>
+    <text>新鲜 · 亲民 · 快捷</text>
+  </view>
+  <!-- 搜索条 -->
+  <view class="search" bind:tap="goSearch">
+    <text class="icon-search">搜索商品</text>
+    <text class="icon-scan" catch:tap="scanCode"></text>
+  </view>
+</view>
+
+<scroll-view
+  class="viewport"
+  scroll-y
+  refresher-enabled
+  enable-back-to-top
+  refresher-triggered="{{triggered}}"
+  bind:refresherrefresh="refresh"
+  enhanced
+  refresher-background="#f7f7f8"
+  bind:scrolltolower="getMore"
+  show-scrollbar="{{false}}">
+  <!-- 焦点图 -->
+  <carousel
+    class="banner"
+    source="{{bannerData}}"></carousel>
+  <!-- 前台类目 -->
+  <entries source="{{entryData}}"></entries>
+  <!-- 推荐专区 -->
+  <view class="panel recommend">
+    <view
+      wx:for="{{recommendData}}"
+      wx:key="id"
+      class="item">
+      <view class="title">
+        {{item.title}} <text>{{item.alt}}</text>
+      </view>
+      <view
+        bind:tap="{{item.type === 4 ? 'nextVersion' : 'navigateTo'}}"
+        mark:url="/pages/recommend/index?type={{item.type}}"
+        class="cards">
+        <navigator
+          wx:for="{{item.pictures}}"
+          wx:for-item="picture"
+          wx:key="*this"
+          hover-class="none" url=" ">
+          <image
+            mode="aspectFit"
+            src="{{picture}}"></image>
+        </navigator>
+      </view>
+    </view>
+  </view>
+  <!-- 新鲜好物 -->
+  <view class="panel fresh">
+    <view class="title">
+      新鲜好物
+      <navigator
+        hover-class="none"
+        class="more"
+        url="/pages/recommend/index?type=5">更多</navigator>
+    </view>
+    <view class="cards">
+      <navigator
+        wx:for="{{freshData}}"
+        wx:key="id"
+        hover-class="none"
+        url="/pages/goods/index?id={{item.id}}">
+        <image
+          mode="aspectFit"
+          src="{{item.picture}}"></image>
+        <view class="name">{{item.name}}</view>
+        <view class="price">
+          <text class="small">¥</text>
+          <text>{{price.trunc(item.price)}}</text>
+          <text class="small">{{price.fract(item.price)}}</text>
+        </view>
+      </navigator>
+    </view>
+  </view>
+  <!-- 热门品牌 -->
+  <!-- <view class="panel brands">
+    <view class="title">
+      热门品牌
+      <navigator hover-class="none" class="more" url="/pages/list/index">更多</navigator>
+    </view>
+    <view class="cards">
+      <navigator hover-class="none" url="/pages/goods/index">
+        <image
+          mode="aspectFit"
+          src="http://static.botue.com/erabbit/static/uploads/brand_logo_1.jpg"></image>
+        <view class="name">小米</view>
+        <view class="price">99元起</view>
+      </navigator>
+      <navigator hover-class="none" url="/pages/goods/index">
+        <image
+          mode="aspectFit"
+          src="http://static.botue.com/erabbit/static/uploads/brand_logo_2.jpg"></image>
+        <view class="name">TCL</view>
+        <view class="price">199起</view>
+      </navigator>
+      <navigator hover-class="none" url="/pages/goods/index">
+        <image
+          mode="aspectFit"
+          src="http://static.botue.com/erabbit/static/uploads/brand_logo_3.jpg"></image>
+        <view class="name">饭小宝</view>
+        <view class="price">9.9起</view>
+      </navigator>
+      <navigator hover-class="none" url="/pages/goods/index">
+        <image
+          mode="aspectFit"
+          src="http://static.botue.com/erabbit/static/uploads/brand_logo_4.jpg"></image>
+        <view class="name">鳄鱼</view>
+        <view class="price">299起</view>
+      </navigator>
+    </view>
+  </view> -->
+  <!-- 专题 -->
+  <!-- <view class="panel topic">
+    <view class="title">
+      专题
+      <navigator hover-class="none" class="more" url="">更多</navigator>
+    </view>
+    <div class="cards">
+      <navigator hover-class="none" url="">
+        <image
+          src="http://static.botue.com/erabbit/static/uploads/topic_1.jpg"></image>
+        <view class="name">忙里忙外，回家吃饭忙里忙外，回家吃饭</view>
+        <view class="price">
+          <text>19.9元</text>起
+        </view>
+        <view class="extra">
+          <text space="ensp" class="icon-heart">1220</text>
+          <text space="ensp" class="icon-preview">1000</text>
+        </view>
+      </navigator>
+      <navigator hover-class="none" url="">
+        <image
+          src="http://static.botue.com/erabbit/static/uploads/topic_2.jpg"></image>
+        <view class="name">忙里忙外，回家吃饭</view>
+        <view class="price">
+          <text>19.9元</text>起
+        </view>
+        <view class="extra">
+          <text space="ensp" class="icon-heart">1220</text>
+          <text space="ensp" class="icon-preview">1000</text>
+        </view>
+      </navigator>
+    </div>
+  </view> -->
+  <!-- 猜你喜欢 -->
+  <guess source="{{guessData.items}}"></guess>
+  <view class="loading" wx:if="{{ hasMore }}">正在加载...</view>
+</scroll-view>

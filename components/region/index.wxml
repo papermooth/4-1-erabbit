@@ -1,0 +1,14 @@
+<picker
+  range="{{[province, city, county]}}"
+  range-key="name"
+  bind:change="onChange"
+  bind:columnchange="onColumnChange"
+  value="{{values}}"
+  mode="multiSelector">
+  <view class="region">
+    {{selectedNames}}
+    <view
+      wx:if="{{!selectedNames}}"
+      class="placeholder">{{placeholder}}</view>
+  </view>
+</picker>

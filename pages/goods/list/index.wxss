@@ -1,0 +1,9 @@
+
+page {
+  height: 100%;
+  overflow: hidden;
+}
+
+.list {
+  height: 100%;
+}

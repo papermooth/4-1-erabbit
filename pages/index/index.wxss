@@ -1,0 +1,245 @@
+
+page {
+  height: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  padding-top: env(safe-area-inset-top);
+}
+
+/* 自定义导航条 */
+.navbar {
+  background-image: url(http://static.botue.com/erabbit/static/images/navigator_bg.png);
+  background-size: cover;
+  position: relative;
+}
+
+.navbar .logo {
+  display: flex;
+  align-items: center;
+  height: 64rpx;
+  padding-left: 30rpx;
+}
+
+.navbar .logo image {
+  width: 166rpx;
+  height: 39rpx;
+}
+
+.navbar .logo text {
+  flex: 1;
+  line-height: 28rpx;
+  color: #fff;
+  margin: 2rpx 0 0 20rpx;
+  padding-left: 20rpx;
+  border-left: 1rpx solid #fff;
+  font-size: 26rpx;
+}
+
+.navbar .search {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 10rpx 0 26rpx;
+  height: 64rpx;
+  margin: 16rpx 20rpx;
+  color: #fff;
+  font-size: 28rpx;
+  border-radius: 32rpx;
+  background-color: rgba(255, 255, 255, .5);
+}
+
+.navbar .icon-search::before {
+  margin-right: 10rpx;
+}
+
+.navbar .icon-scan {
+  font-size: 30rpx;
+  padding: 15rpx;
+}
+
+.viewport {
+  background-color: #f7f7f8;
+}
+
+/* 焦点图 */
+.banner {
+  height: 280rpx;
+  margin: 20rpx 20rpx 0;
+}
+
+/* 公共面板 */
+.panel {
+  margin: 20rpx 20rpx 0;
+  border-radius: 10rpx;
+  background-color: #fff;
+}
+
+.panel .title {
+  display: flex;
+  align-items: center;
+  padding: 24rpx 24rpx 0;
+  font-size: 32rpx;
+  color: #262626;
+  position: relative;
+}
+
+.panel .title text {
+  font-size: 24rpx;
+  color: #7F7F7F;
+  margin-left: 18rpx;
+}
+
+.panel .more {
+  position: absolute;
+  right: 24rpx;
+  font-size: 26rpx;
+  color: #7f7f7f;
+}
+
+.panel .cards {
+  display: flex;
+}
+
+.panel .cards navigator {
+  flex: 1;
+  padding: 10rpx;
+}
+
+.panel .name {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* 推荐专区 */
+.recommend {
+  display: flex;
+  flex-wrap: wrap;
+  min-height: 508rpx;
+}
+
+.recommend .item {
+  display: flex;
+  flex-direction: column;
+
+  width: 50%;
+  height: 254rpx;
+}
+
+.recommend .item {
+  border-right: 1rpx solid #eee;
+  border-top: 1rpx solid #eee;
+}
+
+.recommend .item:nth-child(2n) {
+  border-right: 0 none;
+}
+
+.recommend .item:nth-child(-n+2) {
+  border-top: 0 none;
+}
+
+.recommend .cards {
+  flex: 1;
+  padding: 15rpx 20rpx;
+}
+
+.recommend .cards navigator {
+  width: 50%;
+}
+
+/* 新鲜好物 & 热门品牌 */
+.fresh {
+  min-height: 320rpx;
+}
+
+.fresh .cards navigator,
+.brands .cards navigator {
+  width: 25%;
+  padding: 15rpx 20rpx 20rpx;
+  line-height: 1;
+  text-align: center;
+}
+
+.fresh image,
+.brands image {
+  width: 126rpx;
+  height: 126rpx;
+}
+
+.fresh .name,
+.brands .name {
+  margin: 20rpx 0 16rpx;
+  font-size: 24rpx;
+  color: #262626;
+}
+
+.fresh .price {
+  line-height: 1;
+  text-align: left;
+  font-size: 26rpx;
+  color: #cf4444;
+}
+
+.fresh .small {
+  font-size: 80%;
+}
+
+.brands .price {
+  font-size: 24rpx;
+  color: #999;
+}
+
+/* 专题 */
+.topic .cards {
+  justify-content: space-between;
+  padding: 15rpx 20rpx 20rpx;
+}
+
+.topic .cards navigator {
+  width: 325rpx;
+  line-height: 1;
+  flex: 0;
+}
+
+.topic image {
+  width: 325rpx;
+  height: 164rpx;
+  border-radius: 4rpx;
+}
+
+.topic navigator > view {
+  margin-top: 16rpx;
+}
+
+.topic .name {
+  font-size: 26rpx;
+  color: #262626;
+}
+
+.topic .price {
+  font-size: 24rpx;
+  color: #999;
+}
+
+.topic .price text {
+  color: #cf4444;
+}
+
+.topic .extra {
+  font-size: 22rpx;
+  color: #666;
+}
+
+.topic .extra text {
+  margin-right: 20rpx;
+}
+
+.topic .extra text::before {
+  margin-right: 4rpx;
+}
+
+.topic .extra .icon-preview:before {
+  font-size: 25rpx;
+}

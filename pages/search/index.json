@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "搜索商品",
+  "usingComponents": {
+    "result": "/components/result/index"
+  }
+}

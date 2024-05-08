@@ -1,0 +1,21 @@
+<!-- 导入 wxs 封装的用于处理商品价格的方法 -->
+<wxs src="/wxs/price.wxs" module="price"></wxs>
+<!-- 猜你喜欢 -->
+<view class="caption">
+  <text class="text">猜你喜欢</text>
+</view>
+<view class="guess">
+  <navigator
+    wx:for="{{source}}"
+    wx:key="id"
+    url="/pages/goods/index?id={{item.id}}" class="navigator">
+    <image
+      class="image"
+      src="{{item.picture}}"></image>
+    <view class="name">{{item.name}}</view>
+    <view class="price">
+      <text class="small">¥</text>
+      {{price.trunc(item.price)}}<text class="small">{{price.fract(item.price)}}</text>
+    </view>
+  </navigator>
+</view>

@@ -1,0 +1,53 @@
+<view class="viewport">
+  <!-- 推荐封面图 -->
+  <view class="cover">
+    <image src="{{bannerPicture}}"></image>
+  </view>
+  <view class="tabs">
+    <text
+      bind:tap="changeTab"
+      mark:id="{{item.id}}"
+      wx:for="{{subTypes}}"
+      wx:key="id"
+      class="text {{subType == item.id && 'active'}} ">{{item.title}}</text>
+  </view>
+  <scroll-view
+    scroll-y
+    enhanced
+    scroll-top="{{scrollTop}}"
+    bind:scroll="onScroll"
+    bind:scrolltolower="getMore"
+    show-scrollbar="{{false}}"
+    class="scroll-view">
+    <view
+      wx:for="{{goodsItems}}"
+      wx:key="index"
+      wx:if="{{subType == index}}"
+      class="goods">
+      <navigator
+        wx:for="{{item.items}}"
+        wx:for-item="goods"
+        wx:key="id"
+        hover-class="none"
+        url="/pages/goods/index"
+        class="navigator">
+        <image
+          class="thumb"
+          src="{{goods.picture}}"></image>
+        <view class="name ellipsis">{{goods.name}}</view>
+        <view class="price">
+          <text class="symbol">¥</text>
+          <text class="number">{{price.trunc(goods.price)}}</text>
+          <text class="decimal">{{price.fract(goods.price)}}</text>
+        </view>
+      </navigator>
+    </view>
+    <view
+      wx:if="{{goodsItems[subType].hasMore}}"
+      class="loading">正在加载...</view>
+  </scroll-view>
+</view>
+
+<!-- 导入封装好处理价格展示的方法 -->
+<wxs src="/wxs/price.wxs" module="price"></wxs>
+

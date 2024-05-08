@@ -1,0 +1,125 @@
+
+<!-- 引入封装好的处理价格的方法 -->
+<wxs src="/wxs/price.wxs" module="price"></wxs>
+
+<scroll-view
+  scroll-y
+  show-scrollbar="{{false}}"
+  class="viewport">
+  <!-- 收货地址 -->
+  <view
+    class="shipment"
+    bind:tap="navigateTo"
+    mark:url="/pages/my/address/index?flag=true">
+    <view class="user">
+      {{orderInfo.userAddresses[0].receiver}}
+      {{orderInfo.userAddresses[0].contact}}
+    </view>
+    <view class="address">
+      {{orderInfo.userAddresses[0].fullLocation}}
+      {{orderInfo.userAddresses[0].address}}
+    </view>
+    <text class="icon icon-right"></text>
+  </view>
+
+  <!-- 商品信息 -->
+  <view class="goods">
+    <view
+      wx:for="{{orderInfo.goods}}"
+      wx:key="id"
+      class="item">
+      <image
+        class="cover"
+        src="{{item.picture}}"></image>
+      <view class="meta">
+        <view class="name ellipsis">{{item.name}}</view>
+        <view class="type">{{item.attrsText}}</view>
+        <view class="price">
+          <view class="actual">
+            <text class="symbol">¥</text>{{item.payPrice}}
+          </view>
+          <view class="original">
+            <text class="symbol">¥</text>{{item.price}}
+          </view>
+        </view>
+        <view class="quantity">x{{item.count}}</view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 配送及支付方式 -->
+  <view class="related">
+    <view
+      class="item"
+      bind:tap="showHalfDialog"
+      mark:index="0">
+      <text class="text">配送时间</text>
+      <text class="picker icon-fonts">{{delivery.text}}</text>
+    </view>
+    <view
+      class="item"
+      bind:tap="showHalfDialog"
+      mark:index="1">
+      <text class="text">支付方式</text>
+      <text class="picker icon-fonts">{{payment.text}}</text>
+    </view>
+    <view class="item">
+      <text class="text">买家备注</text>
+      <input
+        bind:input="getMessage"
+        cursor-spacing="30"
+        placeholder="建议留言前先与商家沟通确认"></input>
+    </view>
+  </view>
+
+  <!-- 支付金额 -->
+  <view class="settlement">
+    <view class="item">
+      <text class="text">商品总价: </text>
+      <text class="number">
+        <text class="symbol">¥</text>
+        <text>{{orderInfo.summary.totalPrice}}</text>
+      </text>
+    </view>
+    <view class="item">
+      <text class="text">运费: </text>
+      <text class="number">
+        <text class="symbol">¥</text>
+        <text>{{orderInfo.summary.postFee}}</text>
+      </text>
+    </view>
+    <view class="item">
+      <text class="text">折扣: </text>
+      <text class="number danger">
+        <text class="symbol">-¥</text>
+        <text>{{orderInfo.summary.discountPrice}}</text>
+      </text>
+    </view>
+  </view>
+  <view class="gap"></view>
+</scroll-view>
+
+<view class="toolbar">
+  <view class="amount">
+    <text class="symbol">¥</text>
+    <text class="number">{{price.trunc(orderInfo.summary.totalPayPrice)}}</text>
+    <text class="decimal">{{price.fract(orderInfo.summary.totalPayPrice)}}</text>
+  </view>
+  <view
+    bind:tap="goPayment"
+    class="button">提交订单</view>
+</view>
+
+<mp-half-screen-dialog
+  extClass="half-dialog"
+  show="{{halfDialogVisible}}"
+  closabled="{{false}}"
+  maskClosable="{{false}}">
+  <view slot="desc" class="description">
+    <layer
+      title="{{layer.title}}"
+      items="{{layer.list}}"
+      default-index="{{layer.currentIndex}}"
+      bind:change="onChange"></layer>
+  </view>
+</mp-half-screen-dialog>

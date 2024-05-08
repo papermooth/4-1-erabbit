@@ -1,0 +1,18 @@
+
+<view class="carousel">
+  <swiper
+    circular
+    interval="3000"
+    bind:change="swiperChanged">
+    <swiper-item wx:for="{{source}}" wx:key="id">
+      <navigator class="navigator" url=" ">
+        <image class="image" src="{{item.imgUrl}}"></image>
+      </navigator>
+    </swiper-item>
+  </swiper>
+  <view class="indicator">
+    <text
+      class="{{index === activeIndex ? 'active dot' : 'dot'}}"
+      wx:for="{{source}}" wx:key="id"></text>
+  </view>
+</view>

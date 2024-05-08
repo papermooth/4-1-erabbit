@@ -1,0 +1,124 @@
+page {
+  height: 100%;
+  background-color: #f4f4f4;
+}
+
+.viewport {
+  overflow: hidden;
+}
+
+.filter {
+  height: 120rpx;
+  margin: 20rpx;
+  padding: 0 10rpx;
+  border-radius: 10rpx;
+  background-color: #fff;
+}
+
+.filter .wrap {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  white-space: nowrap;
+}
+
+.filter .text {
+  display: inline-block;
+  line-height: 50rpx;
+  padding: 0 24rpx;
+  margin: 0 10rpx ;
+  font-size: 26rpx;
+  color: #333;
+  border: 1rpx solid #f6f6f6;
+  border-radius: 30rpx;
+  background-color: #F6F6F6;
+}
+
+.filter .active {
+  color: #27BA9B;
+  border: 1rpx solid #27BA9B;
+  background-color: #E3F9F4;
+}
+
+/* 商品评论 */
+.comments {
+  flex: 1;
+  margin: 20rpx;
+  border-radius: 10rpx;
+  background-color: #fff;
+  overflow: hidden;
+}
+
+.comments .comment {
+  padding: 24rpx 20rpx 24rpx;
+  border-top: 1rpx solid #eaeaea;
+}
+
+.comments .comment:first-child {
+  border-top: none;
+}
+
+.comments .caption {
+  height: 60rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.comments .user {
+  font-size: 28rpx;
+  color: #333;
+  display: flex;
+  align-items: center;
+}
+
+.comments .caption .avatar {
+  width: 60rpx;
+  height: 60rpx;
+  margin-right: 20rpx;
+  border-radius: 50%;
+}
+
+.comments .rating {
+  width: 144rpx;
+  height: 24rpx;
+  background-image: url(https://static.botue.com/erabbit/static/images/rating_off.png);
+  background-size: contain;
+}
+
+.comments .rating .rank {
+  height: 100%;
+  background-image: url(https://static.botue.com/erabbit/static/images/rating_on.png);
+  background-size: 144rpx 24rpx;
+}
+
+.comments .content .text {
+  line-height: 1.4;
+  margin-top: 24rpx;
+  font-size: 26rpx;
+  color: #333;
+}
+
+.comments .pictures {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 20rpx;
+}
+
+.comments .picture {
+  width: 151rpx;
+  height: 151rpx;
+  margin-right: 22rpx;
+}
+
+.comments .picture:last-child {
+  margin-right: 0;
+}
+
+.comments .content .extra {
+  display: flex;
+  justify-content: space-between;
+  margin: 20rpx 1rpx 0 0;
+  font-size: 24rpx;
+  color: #666;
+}

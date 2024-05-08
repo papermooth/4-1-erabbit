@@ -1,0 +1,6 @@
+
+<view
+  class="^item ^{{checked ? 'checked' : ''}}"
+  bind:tap="toggleChecked">
+  <slot></slot>
+</view>

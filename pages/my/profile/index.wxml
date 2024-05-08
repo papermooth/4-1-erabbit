@@ -1,0 +1,65 @@
+<view class="viewport">
+  <view
+    class="navbar"
+    style="padding-top: {{safeArea.top}}px">
+    <view class="back icon-left" bind:tap="navigateBack"></view>
+    <view class="title">个人信息</view>
+  </view>
+  <scroll-view scroll-y>
+    <!-- 头像 -->
+    <view class="avatar">
+      <image
+        bind:tap="chooseImage"
+        src="{{avatar}}" />
+      <text>点击修改头像</text>
+    </view>
+    <form bind:submit="sendForm">
+      <!-- 用户信息 -->
+      <view class="form">
+        <view class="form-item">
+          <text class="label">账号</text>
+          <text>{{account}}</text>
+        </view>
+        <view class="form-item">
+          <text class="label">昵称</text>
+          <input name="nickname" value="{{nickname}}" />
+        </view>
+        <view class="form-item">
+          <text class="label">性别</text>
+          <radio-group bind:change="getRadioValue">
+            <label class="radio">
+              <radio
+                value="男"
+                color="#27ba9b"
+                checked="{{gender == '男'}}" /> 男
+            </label>
+            <label class="radio">
+              <radio
+                value="女"
+                checked="{{gender == '女'}}"
+                color="#27ba9b" /> 女
+            </label>
+          </radio-group>
+        </view>
+        <view class="form-item">
+          <text class="label">出生日期</text>
+          <picker
+            bind:change="getPickerValue"
+            mode="date"
+            start="1970-01-01"
+            end="2121-12-31">
+            <view>{{birthday}}</view>
+          </picker>
+        </view>
+        <view class="form-item">
+          <text class="label">职业</text>
+          <input name="profession" value="{{profession}}" />
+        </view>
+      </view>
+      <!-- 提交按钮 -->
+      <button
+        form-type="submit"
+        class="button">保 存</button>
+    </form>
+  </scroll-view>
+</view>

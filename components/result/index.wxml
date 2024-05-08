@@ -1,0 +1,91 @@
+<!-- 搜索结果 -->
+<view class="result">
+  <view class="tabs">
+    <view
+      class="item {{tabIndex == 0 ? 'active' : ''}}"
+      mark:index="0"
+      bind:tap="doSelect">
+      <text class="label">{{optionValue}}</text>
+      <text class="icon-{{selecting ? 'up' : 'down'}}"></text>
+    </view>
+    <view
+      class="item {{tabIndex == 1 ? 'active' : ''}}"
+      mark:index="1"
+      bind:tap="byPrice">
+      <text class="label">价格</text>
+      <text class="{{sortIcon}}"></text>
+    </view>
+    <view
+      class="item {{tabIndex == 2 ? 'active' : ''}}"
+      mark:index="2"
+      bind:tap="bySales">
+      <text class="label">销量</text>
+    </view>
+    <view
+      class="item"
+      bind:tap="navigateTo"
+      mark:url="/pages/goods/filter/index">
+      <text class="label">筛选</text>
+      <text class="icon-filter"></text>
+    </view>
+  </view>
+  <scroll-view
+    enhanced
+    scroll-y
+    show-scrollbar="{{false}}">
+    <!-- 商品列表 -->
+    <view class="cards" wx:if="{{true}}">
+      <navigator
+        hover-class="none"
+        class="navigator"
+        url="/pages/goods/index"
+        wx:key="id"
+        wx:for="{{goods}}">
+        <image
+          class="image"
+          mode="aspectFit"
+          src="{{item.path}}"></image>
+        <view class="name">{{item.name}}</view>
+        <view class="wish">{{item.wish}}人已拼</view>
+        <view class="extra">
+          <view class="present">
+            <text class="small">¥</text>{{item.present}}<text class="small">.00</text>
+          </view>
+          <view class="original">
+            <text class="small">¥</text>{{item.original}}<text class="small">.00</text>
+          </view>
+          <view class="label">包邮</view>
+        </view>
+      </navigator>
+    </view>
+    <!-- 无搜索结果 -->
+    <view class="blank" wx:if="{{false}}">
+      <image
+        class="image"
+        mode="widthFix"
+        src="http://static.botue.com/erabbit/static/images/blank.png"></image>
+      <text class="text">亲, 暂无搜索结果</text>
+    </view>
+  </scroll-view>
+
+  <!-- 下拉框 -->
+  <view
+    hidden="{{!selecting}}"
+    bind:tap="changeOption"
+    class="mask">
+    <view class="select">
+      <view
+        class="option {{optionIndex == 1 ? 'active' : ''}}"
+        mark:index="1"
+        mark:option="最新">最新上架</view>
+      <view
+        class="option {{optionIndex == 2 ? 'active' : ''}}"
+        mark:index="2"
+        mark:option="评价">评价最多</view>
+      <view
+        class="option {{optionIndex == 3 ? 'active' : ''}}"
+        mark:index="3"
+        mark:option="折扣">折扣优先</view>
+    </view>
+  </view>
+</view>

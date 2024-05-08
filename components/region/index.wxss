@@ -1,0 +1,8 @@
+
+.region {
+  color: #333;
+}
+
+.placeholder {
+  color: #888;
+}

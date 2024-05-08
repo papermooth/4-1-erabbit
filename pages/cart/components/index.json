@@ -1,0 +1,10 @@
+{
+  "navigationBarTitleText": "购物车",
+  "backgroundColorTop": "#f7f7f8",
+  "backgroundColorBottom": "#f7f7f8",
+  "usingComponents": {
+    "guess": "/components/guess/index",
+    "mp-slideview": "weui-miniprogram/slideview/slideview"
+  },
+  "styleIsolation": "shared"
+}

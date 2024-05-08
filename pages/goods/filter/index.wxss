@@ -1,0 +1,94 @@
+page {
+  height: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.viewport {
+  padding: 0;
+  border-top: 1rpx solid #ddd;
+}
+
+.range {
+  margin: 0 30rpx;
+}
+
+.range .title {
+  height: 100rpx;
+  line-height: 60rpx;
+  padding: 20rpx 0;
+  font-size: 30rpx;
+  color: #262626;
+  font-weight: 400;
+}
+
+.range .section {
+  display: flex;
+  align-items: center;
+  padding-bottom: 40rpx;
+}
+
+.range .section input {
+  flex: 1;
+  height: 72rpx;
+  text-align: center;
+  padding: 0 40rpx;
+  border-radius: 10rpx;
+  font-size: 26rpx;
+  color: #262626;
+  background-color: #f3f4f4;
+}
+
+.range .section .line {
+  margin: 0 30rpx;
+  color: #222;
+}
+
+.action {
+  display: flex;
+  justify-content: space-between;
+  height: 140rpx;
+  padding: 30rpx;
+  text-align: center;
+  border-top: 1rpx solid #ddd;
+}
+
+.action > view {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 44rpx;
+  font-size: 28rpx;
+}
+
+.action .reset {
+  width: 240rpx;
+  color: #666;
+  border: 1rpx solid #999;
+}
+
+.action .confirm {
+  width: 420rpx;
+  color: #fff;
+  overflow: hidden;
+  background-color: #27ba9b;
+  position: relative;
+}
+
+.action .confirm .door {
+  position: absolute;
+  top: 0;
+
+  width: 0%;
+  height: 100%;
+  background-color: #27ba9b;
+}
+
+.action .confirm .door:last-child {
+  right: 0;
+}
+
+.action .confirm .door:nth-last-child(2) {
+  left: 0;
+}

@@ -1,0 +1,31 @@
+
+<view class="title">配送至</view>
+<view class="shipment">
+  <view
+    wx:for="{{source}}"
+    wx:key="id"
+    bind:tap="selectAddress"
+    mark:id="{{item.id}}"
+    class="item">
+    <view class="user">
+      {{item.receiver}}
+      {{item.contact}}
+    </view>
+    <view class="address">
+      {{item.fullLocation}} {{item.address}}
+    </view>
+    <text
+      class="icon {{item.isDefault === 0 ? 'icon-ring' : 'icon-checked'}}"></text>
+  </view>
+</view>
+<view class="footer">
+  <view
+    wx:if="{{!source.length}}"
+    bind:tap="navigateTo"
+    mark:url="/pages/my/address/form/index"
+    class="button primary">新建地址</view>
+  <view
+    bind:tap="confirm"
+    wx:else
+    class="button primary">确定</view>
+</view>

@@ -1,0 +1,22 @@
+<view class="viewport">
+  <!-- 操作列表 -->
+  <view class="list">
+    <navigator
+      hover-class="none"
+      class="item arrow">设置登录密码</navigator>
+    <navigator
+      hover-class="none"
+      class="item arrow">更改手机号</navigator>
+    <navigator
+      hover-class="none"
+      class="item">
+      密码支付
+      <switch color="#27ba9b" />
+    </navigator>
+  </view>
+  <!-- 操作按钮 -->
+  <view class="action">
+    <view class="button">切换账户</view>
+    <view class="button">退出登录</view>
+  </view>
+</view>

@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "填写订单",
+  "usingComponents": {
+    "mp-half-screen-dialog": "weui-miniprogram/half-screen-dialog/half-screen-dialog",
+    "layer": "../components/layer/index"
+  }
+}

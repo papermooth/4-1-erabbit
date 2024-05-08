@@ -1,0 +1,15 @@
+
+<view class="panel">
+  <view class="title">
+    {{title}}
+    <view class="more" bind:tap="toggleMore">
+      更多<text class="icon-{{collapsed ? 'up' : 'down'}}"></text>
+    </view>
+  </view>
+  <view hidden="{{!collapsed}}" class="section">
+    <item
+      bind:tap="selected"
+      wx:key="*this"
+      wx:for="{{source}}">{{item}}</item>
+  </view>
+</view>

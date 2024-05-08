@@ -1,0 +1,238 @@
+<view
+  class="navbar"
+  style="padding-top: {{safeArea.top}}px">
+  <view class="wrap">
+    <view class="back icon-left" bind:tap="navigackBack"></view>
+    <view class="title {{platform}}">订单详情</view>
+  </view>
+</view>
+
+<scroll-view
+  class="viewport"
+  id="scrollView"
+  enhanced
+  scroll-y
+  show-scrollbar="{{false}}">
+  <!-- 订单状态 -->
+  <view class="overview"
+    style="padding-top: {{safeArea.top + 40}}px">
+
+    <block wx:if="{{orderData.orderState === 1}}">
+      <view class="status icon-clock">等待付款</view>
+      <view class="tips">
+        <text>应付金额: ¥90:00</text>
+        <text class="countdown">支付剩余23时57分42秒</text>
+      </view>
+    </block>
+
+    <block wx:if="{{orderData.orderState === 2}}">
+      <view class="status icon-clock">等待发货</view>
+      <view class="tips"></view>
+    </block>
+
+    <block wx:if="{{orderData.orderState === 3}}">
+      <view class="status icon-clock">等待收货</view>
+      <view class="tips"></view>
+    </block>
+
+    <block wx:if="{{orderData.orderState === 4}}">
+      <view class="status icon-clock">等待评价</view>
+      <view class="tips"></view>
+    </block>
+
+    <block wx:if="{{orderData.orderState === 5}}">
+      <view class="status">已完成</view>
+      <view class="tips"></view>
+    </block>
+
+    <block wx:if="{{orderData.orderState === 6}}">
+      <view class="status">已取消</view>
+      <view class="tips"></view>
+    </block>
+
+    <view
+      wx:if="{{orderData.orderState === 1}}"
+      class="button">去支付</view>
+
+    <view
+      wx:if="{{orderData.orderState === 2}}"
+      class="button">取消订单</view>
+
+    <view
+      wx:if="{{orderData.orderState === 3}}"
+      class="button">查看物流</view>
+
+    <view
+      wx:if="{{orderData.orderState === 4}}"
+      class="button">去评价</view>
+
+    <view
+      wx:if="{{orderData.orderState === 5}}"
+      class="button">申请售后</view>
+
+    <view
+      wx:if="{{orderData.orderState === 6}}"
+      class="button">再次购买</view>
+  </view>
+
+  <!-- 配送状态 -->
+  <view class="shipment">
+    <!-- 物流信息 -->
+    <view
+      wx:if="{{orderData.orderState >= 3 && orderData.orderState !== 6}}"
+      class="logistics"
+      bind:tap="navigateTo"
+      mark:url="/pages/order/logistics/index">
+      <view class="message">您已在北京顺义后沙峪智慧城7号楼店完成取件，感谢使用菜鸟驿站，期待再次为您服务。</view>
+      <view class="date">2020-11-21 09:15:09</view>
+    </view>
+    <!-- 收货地址 -->
+    <view class="locate">
+      <view class="user">
+        {{orderData.receiverContact}}
+        {{orderData.receiverMobile}}
+      </view>
+      <view class="address">
+        {{orderData.receiverAddress}}
+      </view>
+    </view>
+  </view>
+
+  <!-- 商品信息 -->
+  <view class="goods">
+    <view
+      wx:for="{{orderData.skus}}"
+      wx:key="id"
+      class="item">
+      <navigator hover-class="none">
+        <image
+          class="cover"
+          src="{{item.image}}"></image>
+        <view class="meta">
+          <view class="name ellipsis">{{item.name}}</view>
+          <view class="type">{{item.attrsText}}</view>
+          <view class="price">
+            <view class="original">
+              <text class="symbol">¥</text>{{item.curPrice}}
+            </view>
+            <view class="actual">
+              <text class="text">实付: </text>
+              <text class="symbol">¥</text>{{item.realPay}}
+            </view>
+          </view>
+          <view class="quantity">x{{item.quantity}}</view>
+        </view>
+      </navigator>
+      <view class="action">
+        <view
+          wx:if="{{orderData.orderState === 5}}"
+          class="button primary">申请售后</view>
+        <view
+          wx:if="{{orderData.orderState === 4}}"
+          bind:tap="navigateTo"
+          mark:url="/pages/comments/publish/index"
+          class="button">去评价</view>
+      </view>
+    </view>
+    <!-- 合计 -->
+    <view class="total">
+      <view>
+        <text class="text">商品总价: </text>
+        <text class="symbol">{{orderData.totalMoney}}</text>
+      </view>
+      <view>
+        <text class="text">运费: </text>
+        <text class="symbol">{{orderData.postFee}}</text>
+      </view>
+      <view class="paid">
+        <text class="text">实付: </text>
+        <text class="symbol primary">{{orderData.payMoney}}</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 订单信息 -->
+  <view class="detail">
+    <view class="title">订单信息</view>
+    <view class="list">
+      <text>订单编号: {{orderData.id}}</text>
+      <text>下单时间: {{orderData.createTime}}</text>
+      <text>支付方式: {{orderData.deliveryTimeType === 1 ? '货到付款' : '在线支付'}}</text>
+      <text wx:if="{{orderData.deliveryTimeType === 2}}">支付渠道: 微信支付</text>
+    </view>
+  </view>
+
+  <!-- 猜你喜欢 -->
+  <guess source="{{guessData.items}}"></guess>
+</scroll-view>
+
+<div class="buttons">
+  <block wx:if="{{orderData.orderState === 1}}">
+    <view class="primary">去支付</view>
+    <view
+      class="default"
+      bind:tap="cancelOrder">取消订单</view>
+  </block>
+
+  <block wx:if="{{orderData.orderState === 2}}">
+    <view class="primary">取消订单</view>
+  </block>
+
+  <block wx:if="{{orderData.orderState === 3}}">
+    <view class="primary">查看物流</view>
+  </block>
+
+  <block wx:if="{{orderData.orderState === 4}}">
+    <view class="primary">去评价</view>
+  </block>
+
+  <block wx:if="{{orderData.orderState === 5}}">
+    <view class="primary">申请售后</view>
+    <view class="default">删除订单</view>
+  </block>
+
+  <block wx:if="{{orderData.orderState === 6}}">
+    <view class="primary">再次购买</view>
+    <view class="default">删除订单</view>
+  </block>
+</div>
+
+<mp-half-screen-dialog
+  extClass="half-dialog"
+  show="{{showHalfDialog}}"
+  closabled="{{false}}">
+  <view slot="title" class="title">订单取消</view>
+  <view slot="desc" class="description">
+    <view class="tips">请选择取消订单的原因:</view>
+    <view class="cell">
+      <text class="text">商品无货</text>
+      <text class="icon-checked"></text>
+    </view>
+    <view class="cell">
+      <text class="text">不想要了</text>
+      <text class="icon-ring"></text>
+    </view>
+    <view class="cell">
+      <text class="text">商品信息填错了</text>
+      <text class="icon-ring"></text>
+    </view>
+    <view class="cell">
+      <text class="text">地址信息填写错误</text>
+      <text class="icon-ring"></text>
+    </view>
+    <view class="cell">
+      <text class="text">商品降价</text>
+      <text class="icon-ring"></text>
+    </view>
+    <view class="cell">
+      <text class="text">其它</text>
+      <text class="icon-ring"></text>
+    </view>
+  </view>
+  <view slot="footer" class="footer">
+    <view
+      class="button"
+      bind:tap="cancelHalfDialog">取消</view>
+    <view class="button primary">确认</view>
+  </view>
+</mp-half-screen-dialog>

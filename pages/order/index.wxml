@@ -1,0 +1,118 @@
+<wxs module="wxs" src="./index.wxs"></wxs>
+<view class="viewport">
+  <view class="tabs" bind:tap="changeTab">
+    <text data-swiper-index="0">全部</text>
+    <text data-swiper-index="1">待付款</text>
+    <text data-swiper-index="2">待发货</text>
+    <text data-swiper-index="3">待收货</text>
+    <text data-swiper-index="4">待评价</text>
+    <!-- 游标 -->
+    <view class="cursor"></view>
+  </view>
+  <swiper
+    class="orders"
+    data-current="{{adjustIndex}}"
+    duration="{{200}}"
+    current="{{swiperIndex}}"
+    bind:change="changeTab"
+    bind:animationfinish="onFinish"
+    bind:transition="{{wxs.onTransition}}">
+    <swiper-item
+      wx:for="{{states}}"
+      wx:key="id"
+      item-id="{{index}}">
+      <scroll-view
+        enhanced
+        scroll-y
+        bind:scrolltolower="getMore"
+        show-scrollbar="{{false}}">
+        <view
+          wx:for="{{item.orders}}"
+          wx:key="id"
+          wx:for-item="order"
+          class="card">
+          <!-- 订单相关 -->
+          <view class="status">
+            <text class="date">{{order.createTime}}</text>
+
+            <block wx:if="{{order.orderState === 1}}">
+              <text>待付款</text>
+            </block>
+
+            <block wx:if="{{order.orderState === 2}}">
+              <text>待发货</text>
+            </block>
+
+            <block wx:if="{{order.orderState === 3}}">
+              <text>待收货</text>
+            </block>
+
+            <block wx:if="{{order.orderState === 4}}">
+              <text>待评价</text>
+            </block>
+
+            <block wx:if="{{order.orderState === 5}}">
+              <text>已完成</text>
+              <text class="icon-delete"></text>
+            </block>
+
+            <block wx:if="{{order.orderState === 6}}">
+              <text>已取消</text>
+            </block>
+
+          </view>
+          <!-- 商品信息 -->
+          <navigator
+            wx:for="{{order.skus}}"
+            wx:key="id"
+            wx:for-item="goods"
+            class="goods"
+            url="./detail/index"
+            hover-class="none">
+            <view class="cover">
+              <image
+                src="{{goods.image}}"></image>
+            </view>
+            <view class="meta">
+              <view class="name ellipsis">{{goods.name}}</view>
+              <view class="type">{{goods.attrsText}}</view>
+            </view>
+          </navigator>
+
+          <!-- 支付信息 -->
+          <view class="payment">
+            <text class="quantity">共{{order.totalNum}}件商品</text>
+            <text>实付</text>
+            <text class="amount">
+              <text class="symbol">¥</text>{{order.totalMoney}}
+            </text>
+          </view>
+          <!-- 订单操作 -->
+          <view class="action">
+            <block wx:if="{{order.orderState  === 1}}">
+              <view class="button primary">去支付</view>
+              <view class="button">取消订单</view>
+            </block>
+            <block wx:if="{{order.orderState  === 2}}">
+              <view class="button">取消订单</view>
+            </block>
+            <block wx:if="{{order.orderState  === 3}}">
+              <view class="button primary">查看物流</view>
+            </block>
+            <block wx:if="{{order.orderState  === 4}}">
+              <view class="button primary">去评价</view>
+            </block>
+            <block wx:if="{{order.orderState  === 5}}">
+              <view class="button primary">申请售后</view>
+              <view class="button">删除订单</view>
+            </block>
+            <block wx:if="{{order.orderState  === 6}}">
+              <view class="button primary">再次购买</view>
+              <view class="button">删除订单</view>
+            </block>
+          </view>
+        </view>
+      </scroll-view>
+    </swiper-item>
+  </swiper>
+</view>

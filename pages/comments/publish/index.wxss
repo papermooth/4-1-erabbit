@@ -1,0 +1,206 @@
+page {
+  height: 100%;
+  background-color: #f4f4f4;
+}
+
+.viewport {
+  padding: 0 20rpx 20rpx;
+}
+
+.card {
+  padding: 30rpx 20rpx 20rpx;
+  margin-top: 20rpx;
+  border-radius: 10rpx;
+  background-color: #fff;
+}
+
+.goods {
+  height: 140rpx;
+}
+
+.goods .thumb {
+  width: 140rpx;
+  height: 140rpx;
+  margin-right: 20rpx;
+  float: left;
+}
+
+.goods .name {
+  height: 90rpx;
+  font-size: 28rpx;
+  color: #333;
+}
+
+.goods .extra {
+  line-height: 1;
+  margin-top: 19rpx;
+  font-size: 26rpx;
+  color: #999;
+}
+
+.card .label {
+  width: 140rpx;
+  font-size: 28rpx;
+  color: #333;
+}
+
+.rating {
+  display: flex;
+  align-items: center;
+  margin-top: 30rpx;
+}
+
+.rating .level {
+  font-size: 26rpx;
+  color: #333;
+}
+
+.rating .star {
+  width: 30rpx;
+  height: 30rpx;
+  margin: -4rpx 10rpx 0 0;
+  background-image: url(https://static.botue.com/erabbit/static/images/stars.png);
+  background-size: 30rpx 60rpx;
+}
+
+.rating .on {
+  background-position: 0 -30rpx;
+}
+
+.tags {
+  display: flex;
+  margin-top: 30rpx;
+}
+
+.tags .label {
+  padding-top: 4rpx;
+}
+
+.tags .options {
+  flex: 1;
+  font-size: 28rpx;
+}
+
+.tags .options .text {
+  display: inline-block;
+  line-height: 50rpx;
+  padding: 0 24rpx;
+  margin: 0 20rpx 20rpx 0;
+  font-size: 26rpx;
+  color: #333;
+  border: 1rpx solid #f6f6f6;
+  border-radius: 30rpx;
+  background-color: #F6F6F6;
+}
+
+.tags .options .active {
+  color: #27BA9B;
+  border: 1rpx solid #27BA9B;
+  background-color: #E3F9F4;
+}
+
+.content {
+  margin-top: 10rpx;
+}
+
+.content .label {
+  margin-bottom: 10rpx;
+}
+
+.content textarea {
+  width: 100%;
+  height: 240rpx;
+  padding: 10rpx 20rpx;
+  border-radius: 10rpx;
+  box-sizing: border-box;
+  background-color: #F6F6F6;
+}
+
+.pictures {
+  display: flex;
+  margin-top: 30rpx;
+}
+
+.pictures .picture {
+  width: 151rpx;
+  height: 151rpx;
+  margin-left: 22rpx;
+  border-radius: 4rpx;
+  position: relative;
+}
+
+.pictures .picture .remove {
+  position: absolute;
+  top: -24rpx;
+  right: -20rpx;
+
+  width: 60rpx;
+  height: 60rpx;
+  background: url(https://static.botue.com/erabbit/static/images/remove.png) no-repeat center / 40rpx;
+}
+
+.pictures .picture:first-child,
+.pictures .button:first-child {
+  margin-left: 0;
+}
+
+.pictures .button {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: 151rpx;
+  height: 151rpx;
+  text-align: center;
+  line-height: 1;
+  margin-left: 22rpx;
+  border: 1rpx dashed #27BA9B;
+  border-radius: 4rpx;
+  color: #27BA9B;
+  background-color: #E3F9F4;
+}
+
+.pictures .button::before {
+  font-size: 40rpx;
+}
+
+.pictures .button text {
+  font-size: 26rpx;
+  display: block;
+  margin-top: 10rpx;
+}
+
+.action {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 40rpx 0 20rpx;
+}
+
+.action .anonymous {
+  line-height: 1;
+  font-size: 28rpx;
+  color: #666;
+  display: flex;
+  align-items: center;
+}
+
+.action .icon {
+  font-size: 36rpx;
+  margin-right: 10rpx;
+}
+
+.action .icon-checked {
+  color: #27BA9B;
+}
+
+.action .submit {
+  width: 160rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  text-align: center;
+  padding: 0 10rpx;
+  border-radius: 60rpx;
+  font-size: 28rpx;
+  color: #fff;
+  background-color: #27BA9B;
+}

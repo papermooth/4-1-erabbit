@@ -1,0 +1,54 @@
+<view class="viewport">
+  <form bind:submit="sendForm">
+    <!-- 地址信息 -->
+    <view class="form">
+      <view class="form-item">
+        <text class="label">姓名</text>
+        <input
+          name="receiver"
+          value="{{receiver}}"
+          placeholder-style="color: #888"
+          placeholder="请填写收货人姓名" />
+      </view>
+      <view class="form-item">
+        <text class="label">手机号码</text>
+        <input
+          name="contact"
+          value="{{contact}}"
+          placeholder-style="color: #888"
+          placeholder="请填写收货人手机号码" />
+      </view>
+      <view class="form-item">
+        <text class="label">省/市/县 (区)</text>
+        <picker
+          value="{{[provinceCode, cityCode, countyCode]}}"
+          bind:change="getPickerValue"
+          mode="region">
+          <view
+            wx:if="{{fullLocation}}"
+            class="region">{{fullLocation}}</view>
+          <view
+            wx:else
+            class="placeholder">请填写收货人所在城市</view>
+        </picker>
+      </view>
+      <view class="form-item">
+        <text class="label">详细地址</text>
+        <input
+          name="address"
+          value="{{address}}"
+          placeholder-style="color: #888"
+          placeholder="街道、楼牌号信息" />
+      </view>
+      <view class="form-item">
+        <text class="label">设置默认地址</text>
+        <switch
+          checked="{{isDefault === 1}}"
+          bind:change="getSwitchValue"
+          color="#27ba9b" />
+      </view>
+    </view>
+    <!-- 提交按钮 -->
+    <button form-type="submit" class="button">保 存</button>
+  </form>
+</view>

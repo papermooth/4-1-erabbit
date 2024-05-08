@@ -1,0 +1,16 @@
+
+module.exports.onTransition = function (ev, ins) {
+  // 获取动画相关参数
+  var current = parseInt(ev.target.dataset.current)
+  var dx = ev.detail.dx
+
+  // 获取滚动单元的宽度
+  var width = ev.instance.getComputedStyle(['width']).width
+  width = parseInt(width)
+  
+  // 获取节点并设置动画样式
+  var cursor = ins.selectComponent('.cursor')
+  cursor.setStyle({
+    left: (current + dx / width) * 20 + '%'
+  })
+}

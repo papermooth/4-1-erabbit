@@ -1,0 +1,19 @@
+
+<view class="title">{{title}}</view>
+<view class="list">
+  <view
+    class="item"
+    bind:tap="onChange"
+    mark:index="{{index}}"
+    wx:for="{{items}}"
+    wx:key="id">
+    <view class="text">{{item.text}}</view>
+    <text
+      class="icon {{defaultIndex === index ? 'icon-checked' : 'icon-ring'}}"></text>
+  </view>
+</view>
+<view class="footer">
+  <view
+    bind:tap="onConfirm"
+    class="button primary">确认</view>
+</view>

@@ -1,0 +1,73 @@
+
+<view class="viewport">
+  <!-- 搜索框 -->
+  <view
+    class="search"
+    mark:url="/pages/search/index"
+    bind:tap="navigateTo">
+    <view class="input">
+      <text class="icon-search">女靴</text>
+    </view>
+  </view>
+  <!-- 分类 -->
+  <view class="categories">
+    <!-- 主分类（一级类目） -->
+    <scroll-view
+      class="primary"
+      enhanced
+      scroll-y="true"
+      show-scrollbar="{{false}}">
+      <view
+        wx:for="{{topCategoryData}}"
+        wx:key="id"
+        mark:id="{{item.id}}"
+        bind:tap="onTap"
+        class="item {{item.id == topID && 'active'}}">{{item.name}}</view>
+    </scroll-view>
+    <!-- 次分类（二级类目） -->
+    <scroll-view
+      class="secondary"
+      enhanced
+      scroll-y
+      scroll-top="{{scrollTop}}"
+      show-scrollbar="{{false}}">
+      <!-- 焦点图 -->
+      <carousel
+        class="banner"
+        source="{{bannerData}}"></carousel>
+      <!-- 区块 -->
+      <view
+        wx:for="{{subCategoryData.children}}"
+        wx:key="id"
+        class="panel">
+        <view class="title">
+          {{item.name}}
+          <navigator
+            class="more"
+            hover-class="none"
+            url="/pages/goods/list/index">全部</navigator>
+        </view>
+        <view class="section">
+          <navigator
+            wx:for="{{item.goods}}"
+            wx:for-item="goods"
+            wx:key="id"
+            hover-class="none"
+            url="/pages/goods/index?id={{goods.id}}">
+            <image
+              src="{{goods.picture}}"></image>
+            <view class="name ellipsis">{{goods.name}}</view>
+            <view class="price">
+              <text class="symbol">¥</text>
+              <text class="number">{{price.trunc(goods.price)}}</text>
+              <text class="decimal">{{price.fract(goods.price)}}</text>
+            </view>
+          </navigator>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+</view>
+
+<!-- 引入处理价格的方法 -->
+<wxs src="/wxs/price.wxs" module="price"></wxs>

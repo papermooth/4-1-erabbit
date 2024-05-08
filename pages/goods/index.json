@@ -1,0 +1,10 @@
+{
+  "navigationStyle": "custom",
+  "usingComponents": {
+    "mp-half-screen-dialog": "weui-miniprogram/half-screen-dialog/half-screen-dialog",
+    "shipment": "./components/shipment/index",
+    "unit": "./components/unit/index",
+    "clause": "./components/clause/index",
+    "help": "./components/help/index"
+  }
+}

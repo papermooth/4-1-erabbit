@@ -1,0 +1,23 @@
+{
+  "name": "erabbit",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "dependencies": {
+    "miniprogram-api-promise": "^1.0.4",
+    "miniprogram-computed": "^4.0.1",
+    "miniprogram-licia": "^1.29.0",
+    "mobx-miniprogram": "^4.13.2",
+    "mobx-miniprogram-bindings": "^2.0.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "http://git.itcast.cn/heimaqianduan/project/erabbit-client-native-wx.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

@@ -1,0 +1,19 @@
+<view class="viewport">
+  <view class="profile">
+    <image
+      class="avatar"
+      src="https://static.botue.com/erabbit/static/uploads/avatar_2.jpg"></image>
+    <text class="nickname">牛仔很忙</text>
+  </view>
+  <view class="tips">
+    <text>你还没有绑定手机，</text>
+    <text>这将会影响部分功能的使用</text>
+  </view>
+  <button
+    open-type="getPhoneNumber"
+    bind:getphonenumber="getPhoneNumber"
+    class="button">
+    <text class="icon-phone"></text>
+    一键绑定手机号
+  </button>
+</view>

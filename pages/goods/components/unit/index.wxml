@@ -1,0 +1,71 @@
+<!-- 引入封装好的专门处理价格展示的 wxs 模块 -->
+<wxs src="/wxs/price.wxs" module="price"></wxs>
+
+<view class="header">
+  <image
+    class="thumb"
+    src="{{goods.picture}}"></image>
+  <view class="wrap">
+    <view class="price">
+      <view class="discount">
+        <text class="symbol">¥</text>
+        <text class="number">{{price.trunc(goods.price)}}</text>
+        <text class="decimal">{{price.fract(goods.price)}}</text>
+      </view>
+      <view class="original">
+        <text class="symbol">¥</text>
+        <text class="number">{{price.trunc(goods.oldPrice)}}</text>
+        <text class="decimal">{{price.fract(goods.oldPrice)}}</text>
+      </view>
+    </view>
+    <view class="extra">
+      <text class="text">库存: {{goods.inventory}}</text>
+    </view>
+  </view>
+</view>
+
+<view class="body">
+  <view class="specs">
+    <block
+      wx:for="{{goods.specs}}"
+      wx:for-index="row"
+      wx:key="name">
+      <view class="label">{{item.name}}</view>
+      <view class="section">
+        <!-- <view class="item checked">白色</view> -->
+        <view
+          wx:for="{{item.values}}"
+          wx:for-index="column"
+          wx:for-item="value"
+          mark:row="{{row}}"
+          mark:column="{{column}}"
+          wx:key="name"
+          bind:tap="{{!value.disabled ? 'toggleState' : ''}}"
+          class="item {{value.disabled && 'disabled'}} {{value.checked && 'checked'}}">{{value.name}}</view>
+      </view>
+    </block>
+  </view>
+  <view class="number">
+    <view class="label">数量</view>
+    <view
+      bind:tap="changeNumber" class="counter">
+      <text
+        mark:step="{{-1}}"
+        class="text disabled">-</text>
+      <input type="text" class="input" value="{{number}}" />
+      <text
+        mark:step="{{1}}"
+        class="text">+</text>
+    </view>
+  </view>
+</view>
+<view class="footer">
+  <view
+    bind:tap="addCart"
+    hidden="{{buttonType === 'payment'}}"
+    class="button secondary">加入购物车</view>
+  <view
+    bind:tap="goPay"
+    hidden="{{buttonType === 'cart'}}"
+    class="button primary">立即购买</view>
+</view>

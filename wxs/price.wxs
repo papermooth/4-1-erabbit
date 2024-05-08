@@ -1,0 +1,20 @@
+
+// 拆分数字
+function split(number) {
+  if(typeof number === 'undefined') return []
+  return number.toString().split('.')
+}
+
+// 整数
+function trunc(price) {
+  return split(price)[0] + '.'
+}
+
+// 小位数
+function fract(price) {
+  return split(price)[1] || '00'
+}
+
+// 将获取整数和小数的方法导出
+module.exports.trunc = trunc
+module.exports.fract = fract

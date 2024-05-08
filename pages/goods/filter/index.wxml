@@ -1,0 +1,38 @@
+
+<scroll-view
+  class="viewport"
+  scroll-y>
+  <view class="range" style="border: none">
+    <view class="title">价格区间(元)</view>
+    <view class="section">
+      <input
+        type="digit"
+        bind:blur="byPriceRange"
+        placeholder-style="color: #999"
+        placeholder="最低价" />
+      <text class="line">-</text>
+      <input
+        type="digit"
+        bind:blur="byPriceRange"
+        placeholder-style="color: #aaa"
+        placeholder="最低价" />
+    </view>
+  </view>
+  <!-- 筛选条件 -->
+  <block wx:for="{{filters}}" wx:key="title">
+    <panel
+      title="{{item.title}}"
+      source="{{item.source}}"
+      collapsed="{{item.collapsed}}"></panel>
+  </block>
+
+</scroll-view>
+
+<view class="action">
+  <view class="reset">重置</view>
+  <view class="confirm">
+    确认(1000个商品)
+    <view class="door"></view>
+    <view class="door"></view>
+  </view>
+</view>
